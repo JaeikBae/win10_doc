@@ -14,10 +14,10 @@ while [[ "$#" -gt 0 ]]; do
     shift
 done
 
-qemu-system-x86_64     -vga std -nographic -k en-us \
+qemu-system-x86_64     -vga std -nographic -k en-us -vnc :0\
     --enable-kvm -m "$MEM"     \
     -cpu "Penryn,kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on,$OPT"     \
     -smp "$SMP"     -machine q35     -usb -device usb-kbd -device usb-tablet     \
-    -smbios type=2     -drive if=virtio,driver=raw,file="./win10_hdd.img"      \
+    -smbios type=2     -drive driver=raw,media=disk,index=0,file="./win10_hdd.img"      \
     -net nic -net user -cdrom "./win10_x64.iso"  -rtc base=localtime,clock=host     \
     -boot order=cd,menu=on
