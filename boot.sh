@@ -14,13 +14,7 @@ while [[ "$#" -gt 0 ]]; do
     shift
 done
 
-# [root@a4a000ade37f arch]# sh boot.sh 
-# qemu-system-x86_64: type is NULL
-# qemu-system-x86_64: Virtio VGA not available
-
-# run vnc server
-
-qemu-system-x86_64     -vga std -nographic -vnc :0 -k en-us \
+qemu-system-x86_64     -vga std -nographic -k en-us \
     --enable-kvm -m "$MEM"     \
     -cpu "Penryn,kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on,$OPT"     \
     -smp "$SMP"     -machine q35     -usb -device usb-kbd -device usb-tablet     \

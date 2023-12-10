@@ -48,7 +48,7 @@ RUN FILE_NAME="$(curl -s -N -L "$DOWNLOAD_URL" | grep -Po -m 1 '(?<=\")(?=(virti
     curl -sSL -o virtio-win.iso "$DOWNLOAD_URL/$FILE_NAME";
 
 
-ENV DISPLAY :0
+ENV DISPLAY :1
 ENV USER arch
 
 COPY boot.sh boot.sh
