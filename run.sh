@@ -7,5 +7,5 @@ sudo docker run --name win10-in-docker \
             -v $PWD/win10.iso:/home/arch/win10_x64.iso 	\
             -v $PWD/win10_hdd.img:/home/arch/win10_hdd.img \
             --rm \
-	    -d \
+	        -d \
             win10
