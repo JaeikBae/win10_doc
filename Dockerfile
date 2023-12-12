@@ -42,7 +42,11 @@ RUN pacman -Syu qemu libvirt dnsmasq virt-manager bridge-utils flex bison edk2-o
     netctl libvirt-dbus libguestfs --noconfirm;
 
 WORKDIR /home/arch
-COPY ./virtio-win-0.1.240.iso ./virtio-win.iso
+RUN echo "Download virtio-win.iso(600MB)"
+ARG DOWNLOAD_URL="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio"
+RUN FILE_NAME="$(curl -s -N -L "$DOWNLOAD_URL" | grep -Po -m 1 '(?<=\")(?=(virtio-win-)).*?(?<=.iso)')"; \
+    echo "Downloading $DOWNLOAD_URL/$FILE_NAME"; \
+    curl -sSL -o virtio-win.iso "$DOWNLOAD_URL/$FILE_NAME";
 
 ENV DISPLAY :0
 ENV USER arch
