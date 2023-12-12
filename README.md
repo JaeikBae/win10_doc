@@ -5,6 +5,20 @@ Run headless container. Connect via VNC.
 This repository is originally forked from [m1k1o/win10-in-docker](
 	https://github.com/m1k1o/win10-in-docker) and modified to run on my environment.
 
+## Table of Contents
+- [Installation](#Installation)
+	- [Table of Contents](#table-of-contents)
+	- [Before you start](#before-you-start)
+	- [Download Windows 10 ISO image](#download-windows-10-iso-image)
+	- [Create HDD](#create-hdd)
+	- [Build and run container](#build-and-run-container)
+- [Connect via VNC](#connect-via-vnc)
+	- [On Linux](#on-linux)
+	- [On Windows](#on-windows)
+	- [Result](#result)
+
+# Installation
+
 ## Before you start
 
 You must have enabled KVM on the host. 
@@ -17,11 +31,13 @@ sudo systemctl enable virtlogd.service
 sudo modprobe kvm_intel
 ```
 
-### Download Windows 10 ISO image
+## Download Windows 10 ISO image
 
 Get official [Windows 10 ISO image](https://www.microsoft.com/en-us/software-download/windows10) from official source.
 
-### Create HDD
+Filename must be `win10.iso`.
+
+## Create HDD
 
 Create HDD image, where system will be installed. Choose custom disk size.
 
@@ -37,18 +53,18 @@ sudo docker build -t win10 .
 sudo run.sh
 ```
 
-## Connect via VNC
-### On Linux
+# Connect via VNC
+## On Linux
 
 ```sh
 sudo apt install xtightvncviewer
 vncviewer <ip-address>:5900
 ```
 
-### On Windows
+## On Windows
 1. Download [VNC Viewer](https://sourceforge.net/projects/tigervnc/files/stable/1.12.0/) and install.
 2. Run VNC Viewer and connect to `<ip-address>:5900`.
 ![viewer_example](images/viewer_example.png)
 
-## Result
+## Example
 ![result](images/windows_result.png)
