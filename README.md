@@ -10,6 +10,8 @@ This repository is originally forked from [m1k1o/win10-in-docker](
 You must have enabled KVM on the host. 
 
 ```sh
+sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients 
+sudo apt install -y bridge-utils virt-manager
 sudo systemctl enable libvirtd.service
 sudo systemctl enable virtlogd.service
 sudo modprobe kvm_intel
@@ -25,7 +27,7 @@ Create HDD image, where system will be installed. Choose custom disk size.
 
 ```sh
 sudo docker build -t win10-hdd -f hdd.Dockerfile .
-sudo docker run --rm -v $PWD:/data win10-hdd
+sudo docker run --rm -v $PWD:/data win10-hdd 128G
 ```
 
 ## Build and run container
@@ -36,14 +38,17 @@ sudo run.sh
 ```
 
 ## Connect via VNC
+### On Linux
 
-- On linux
 ```sh
-vncviewer \<ip-address>:5900
+sudo apt install xtightvncviewer
+vncviewer <ip-address>:5900
 ```
 
-- On windows
-```sh
-run 'vncviewer' and enter '<ip-adress>:5900'
-```
+### On Windows
+1. Download [VNC Viewer](https://sourceforge.net/projects/tigervnc/files/stable/1.12.0/) and install.
+2. Run VNC Viewer and connect to `<ip-address>:5900`.
+![viewer_example](images/viewer_example.png)
 
+## Result
+![result](images/windows_result.png)
