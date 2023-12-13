@@ -16,7 +16,7 @@ This repository is originally forked from [m1k1o/win10-in-docker](
 	- [On Linux](#on-linux)
 	- [On Windows](#on-windows)
 	- [Result](#result)
-- [How to access to files in the virtual machine](#how-to-access-to-files-in-the-virtual-machine)
+- [How to access files in the virtual machine](#how-to-access-files-in-the-virtual-machine)
 	- [Google Drive (recommended) or OneDrive](#google-drive-recommended-or-onedrive)
 	- [SCP](#scp)
 	- [On Linux (advanced)](#on-linux-advanced)
@@ -73,7 +73,7 @@ vncviewer <ip-address>:5900
 ## Example
 ![result](images/windows_result.png)
 
-# How to access to files in the virtual machine
+# How to access files in the virtual machine
 
 ## Google Drive (recommended) or OneDrive
 1. Install [Google Drive](https://www.google.com/drive/download/) on the virtual machine.
