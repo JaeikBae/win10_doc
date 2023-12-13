@@ -7,7 +7,6 @@ This repository is originally forked from [m1k1o/win10-in-docker](
 
 ## Table of Contents
 - [Installation](#Installation)
-	- [Table of Contents](#table-of-contents)
 	- [Before you start](#before-you-start)
 	- [Download Windows 10 ISO image](#download-windows-10-iso-image)
 	- [Create HDD](#create-hdd)
