@@ -53,7 +53,7 @@ sudo docker run --rm -v $PWD:/data win10-hdd 128G
 
 ```sh
 sudo docker build -t win10 .
-sudo run.sh
+sudo sh run.sh
 ```
 
 # Connect via VNC
